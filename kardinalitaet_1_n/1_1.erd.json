@@ -10,7 +10,7 @@
     "show": 500,
     "database": 1,
     "databaseName": "design",
-    "canvasType": "ERD",
+    "canvasType": "@dineug/erd-editor/builtin-schema-sql",
     "language": 1,
     "tableNameCase": 4,
     "columnNameCase": 2,
@@ -38,7 +38,10 @@
       "iwZWnoCRHlxR-90l-IbFU"
     ],
     "indexIds": [],
-    "memoIds": []
+    "memoIds": [
+      "7j7U2t4OtJWfnztk8Z4ph",
+      "iYnWjcWovVKtG8-d0Q8tZ"
+    ]
   },
   "collections": {
     "tableEntities": {
@@ -155,7 +158,7 @@
       },
       "VdCTs63Pt7AAYGrCslebU": {
         "id": "VdCTs63Pt7AAYGrCslebU",
-        "name": "cats",
+        "name": "catmoms",
         "comment": "",
         "columnIds": [
           "sjOF2ncWLVNCRWOt5qdQw",
@@ -176,7 +179,7 @@
           "color": ""
         },
         "meta": {
-          "updateAt": 1724314476273,
+          "updateAt": 1724316231493,
           "createAt": 1724314459884
         }
       },
@@ -656,20 +659,20 @@
       "8vuYT8cSZP5j415xHrUJW": {
         "id": "8vuYT8cSZP5j415xHrUJW",
         "tableId": "aXdNI7Q0BYWBa7jtB_7Mz",
-        "name": "cats_id",
+        "name": "catmoms_id",
         "comment": "",
         "dataType": "INT",
         "default": "",
         "options": 8,
         "ui": {
           "keys": 2,
-          "widthName": 60,
+          "widthName": 65,
           "widthComment": 60,
           "widthDataType": 60,
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1724314821116,
+          "updateAt": 1724316427139,
           "createAt": 1724314805258
         }
       }
@@ -887,7 +890,40 @@
       }
     },
     "indexColumnEntities": {},
-    "memoEntities": {}
+    "memoEntities": {
+      "7j7U2t4OtJWfnztk8Z4ph": {
+        "id": "7j7U2t4OtJWfnztk8Z4ph",
+        "value": "Mastertabelle",
+        "ui": {
+          "x": 204,
+          "y": 233,
+          "zIndex": 101,
+          "width": 116,
+          "height": 100,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1724315109295,
+          "createAt": 1724315093806
+        }
+      },
+      "iYnWjcWovVKtG8-d0Q8tZ": {
+        "id": "iYnWjcWovVKtG8-d0Q8tZ",
+        "value": "Detailtabelle mit Fremdschlüssel",
+        "ui": {
+          "x": 722,
+          "y": 244,
+          "zIndex": 104,
+          "width": 116,
+          "height": 100,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1724315140529,
+          "createAt": 1724315112773
+        }
+      }
+    }
   },
   "lww": {
     "foPZgdpy-2Qfjp8GLrBoI": [
@@ -1061,7 +1097,7 @@
       1724314459881,
       -1,
       {
-        "name": 1724314472786
+        "name": 1724316231492
       }
     ],
     "aXdNI7Q0BYWBa7jtB_7Mz": [
@@ -1177,7 +1213,7 @@
       -1,
       {
         "options(notNull)": 1724314805256,
-        "name": 1724314821114,
+        "name": 1724316427138,
         "dataType": 1724314805256,
         "default": 1724314805256,
         "comment": 1724314805256
@@ -1188,6 +1224,22 @@
       1724314805256,
       -1,
       {}
+    ],
+    "7j7U2t4OtJWfnztk8Z4ph": [
+      "memoEntities",
+      1724315093805,
+      -1,
+      {
+        "value": 1724315109294
+      }
+    ],
+    "iYnWjcWovVKtG8-d0Q8tZ": [
+      "memoEntities",
+      1724315112772,
+      -1,
+      {
+        "value": 1724315140528
+      }
     ]
   }
 }

@@ -1,57 +1,65 @@
--- Vorbereitungen
-USE design;
-DROP TABLE IF EXISTS servants;
-DROP TABLE IF EXISTS cats;
 
--- Mastertabelle: unverändert
-CREATE TABLE IF NOT EXISTS cats
+
+-- Vorbereitung
+
+
+USE design;
+DROP TABLE IF EXISTS kittens;
+DROP TABLE IF EXISTS catmoms;
+
+
+-- MT: cats
+CREATE TABLE IF NOT EXISTS catmoms
 (
-  id INT NOT NULL AUTO_INCREMENT,
+  id        INT         NOT NULL AUTO_INCREMENT,
   cat_name  VARCHAR(45) NOT NULL,
   fur_color VARCHAR(45) NOT NULL,
   PRIMARY KEY (id)
 );
 
--- Struktur: MT
-DESCRIBE design.cats;
 
--- Inserts: MT (Mastertable)
-INSERT INTO cats (id, cat_name,fur_color) VALUES (DEFAULT, "Grizabella", "white");
-INSERT INTO cats (id, cat_name,fur_color) VALUES (DEFAULT, "Alonzo", "grey");
-INSERT INTO cats (id, cat_name,fur_color) VALUES (DEFAULT, "Mausi", "striped");
-
--- Inhalte: MT
-SELECT * FROM design.cats;
+-- MT: Struktur
+DESCRIBE design.catmoms;
 
 
--- Detailtabelle: Verbindung zur MT über Fremdschlüssel
-CREATE TABLE IF NOT EXISTS servants
+-- MT: Inserts
+INSERT INTO catmoms (id, cat_name, fur_color) VALUES (DEFAULT, "Grizabella", "white");
+INSERT INTO catmoms (id, cat_name, fur_color) VALUES (DEFAULT, "Mausi", "striped");
+
+
+-- MT: Inhalte
+SELECT * FROM design.catmoms;
+
+
+-- DT: kittens
+CREATE TABLE IF NOT EXISTS kittens
 (
-  id INT NOT NULL AUTO_INCREMENT,
-  servant_name VARCHAR(45) NOT NULL,
-  yrs_served   TINYINT NOT NULL,
-  cats_id      INT     NOT NULL,
+  id          INT         NOT NULL AUTO_INCREMENT,
+  kitten_name VARCHAR(45) NOT NULL,
+  fur_color   VARCHAR(45) NOT NULL,
+  catmoms_id  INT         NOT NULL,
   PRIMARY KEY (id)
 );
 
--- Fremdschlüssel: DT
-ALTER TABLE servants
-  ADD CONSTRAINT FK_cats_TO_servants
-    FOREIGN KEY (cats_id)
-    REFERENCES cats (id);
 
--- wichtig bei 1:1  UNIQUE im fk
-ALTER TABLE servants
-  ADD CONSTRAINT UQ_cats_id UNIQUE (cats_id);
+ALTER TABLE kittens
+  ADD CONSTRAINT FK_catmoms_TO_kittens
+    FOREIGN KEY (catmoms_id)
+    REFERENCES catmoms (id);
+-- DT: Struktur
+DESCRIBE design.kittens;
 
--- Struktur: DT
-DESCRIBE design.servants;
 
--- Inserts: DT
-INSERT INTO servants (id, servant_name, yrs_served, cats_id) VALUES (DEFAULT, "Peter", 5, 1);
-INSERT INTO servants (id, servant_name, yrs_served, cats_id) VALUES (DEFAULT, "Michael", 2, 2);
-INSERT INTO servants (id, servant_name, yrs_served, cats_id) VALUES (DEFAULT, "Sven", 10, 3);
+-- DT: Inserts
+INSERT INTO kittens (id, kitten_name, fur_color, catmoms_id) VALUES (DEFAULT, "Grizzi_1", "white", 1);
+INSERT INTO kittens (id, kitten_name, fur_color, catmoms_id) VALUES (DEFAULT, "Grizzi_2", "white", 1);
+INSERT INTO kittens (id, kitten_name, fur_color, catmoms_id) VALUES (DEFAULT, "Mausini", "striped", 2);
 
--- Inhalte: DT
-SELECT * FROM design.servants;
+
+-- DT: Inhalte
+SELECT * FROM design.kittens;
+
+
+
+
 
